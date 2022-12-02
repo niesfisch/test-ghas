@@ -51,7 +51,7 @@ jobs:
         id: my-script
         with:
           script: |
-            const diff_url = https://www.google.de/
+            const diff_url = "https://www.google.de/"
             const result = await github.request(diff_url)
             console.log(result)
 
