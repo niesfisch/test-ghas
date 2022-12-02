@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: ubuntu-latest
 
@@ -20,3 +20,32 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn clean install
+  
+  step-b:
+  
+    runs-on: ubuntu-latest
+    #needs: [build-and-test]
+    steps:
+      - name: step b
+      - run: |
+          echo "step b 1"
+          echo "step b 2"
+      - name: step c
+      - run: |
+          echo "step b 3"
+          echo "step b 4"
+  step-c:
+  
+    runs-on: ubuntu-latest
+    needs: [build-and-test, step-b]
+    steps:
+      - name: step c
+      - run: |
+          echo "step c 1"
+          echo "step c 2"
+      - name: step c
+      - run: |
+          echo "step c 3"
+          echo "step c 4"
+          
+          
