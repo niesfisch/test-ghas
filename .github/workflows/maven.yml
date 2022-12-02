@@ -42,10 +42,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: view the secrets context
+        shell: bash
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+        run: |
+          echo "********************** SECRETS *********************************"
+          echo "${SECRETS_CONTEXT}"
+          echo "********************** SECRETS *********************************"
+    
       - name: step c
         run: |
           echo "step c 1"
           echo "step c 2"
+          echo "********************** ENV *********************************"
+          env
+          echo $GITHUB_TOKEN
+          echo ${{ secrets.GITHUB_TOKEN }}
+          echo "********************** ENV *********************************"
           
       - uses: actions/github-script@v6
         id: my-script
