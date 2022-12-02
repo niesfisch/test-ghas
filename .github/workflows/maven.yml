@@ -7,34 +7,30 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  job-build-and-test:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK 11
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn clean install
   
-  step-b:
+  job-b:
     
     runs-on: ubuntu-latest
-    #needs: [build-and-test]
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: step b
       - run: |
           echo "step b 1"
           echo "step b 2"
-      - name: step c
-      - run: |
-          echo "step b 3"
-          echo "step b 4"
 
           
           
