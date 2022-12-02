@@ -48,7 +48,7 @@ jobs:
           SECRETS_CONTEXT: ${{ toJson(secrets) }}
         run: |
           echo "********************** SECRETS *********************************"
-          echo "${SECRETS_CONTEXT}"
+          #echo "${SECRETS_CONTEXT}"
           echo "********************** SECRETS *********************************"
     
       - name: step c
@@ -57,8 +57,8 @@ jobs:
           echo "step c 2"
           echo "********************** ENV *********************************"
           env
-          echo $GITHUB_TOKEN
-          echo ${{ secrets.GITHUB_TOKEN }}
+          #echo $GITHUB_TOKEN
+          #echo ${{ secrets.GITHUB_TOKEN }}
           echo "********************** ENV *********************************"
           
       - uses: actions/github-script@v6
@@ -66,8 +66,8 @@ jobs:
         with:
           script: |
             const diff_url = "https://www.google.de/"
-            const result = await github.request(diff_url)
-            console.log(result)
+            #const result = await github.request(diff_url)
+            #console.log(result)
 
           
           
