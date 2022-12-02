@@ -22,10 +22,11 @@ jobs:
       run: mvn clean install
   
   step-b:
-  
+    
     runs-on: ubuntu-latest
     #needs: [build-and-test]
     steps:
+      - uses: actions/checkout@v2
       - name: step b
       - run: |
           echo "step b 1"
